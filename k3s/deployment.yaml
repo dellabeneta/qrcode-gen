@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qrcode-deployment
+  namespace: qrcode
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: qrcode
+  template:
+    metadata:
+      labels:
+        app: qrcode
+    spec:
+      containers:
+        - name: qrcode
+          image: dellabeneta/qrcode:dev
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "50m"
+              memory: "128Mi"

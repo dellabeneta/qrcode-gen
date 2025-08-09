@@ -1,0 +1,70 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f6f8;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 50px;
+}
+
+h1 {
+	color: #333;
+	margin-bottom: 20px;
+	/* mantém o tamanho original */
+	font-size: 28px;
+}
+
+.form-container {
+	background: white;
+	padding: 30px 40px; /* aumento do padding para equilíbrio */
+	border-radius: 12px;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+	display: flex;
+	align-items: center;
+	gap: 10px; /* aumenta o espaço entre prefixo, input e botão */
+}
+
+.prefix {
+	background: #e0e0e0;
+	padding: 14px 16px; /* aumenta padding para ficar proporcional ao input */
+	border-radius: 6px 0 0 6px;
+	color: #555;
+	font-size: 18px; /* texto maior */
+}
+
+input {
+	padding: 14px 16px;
+	border: 1px solid #ccc;
+	border-radius: 0 6px 6px 0;
+	width: 320px; /* input maior */
+	font-size: 18px; /* texto maior */
+	outline: none;
+}
+
+button {
+	padding: 14px 25px;
+	background: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: background 0.3s;
+	font-size: 18px; /* texto maior */
+}
+
+button:hover {
+	background: #45a049;
+}
+
+.qr-container {
+	margin-top: 40px; /* um pouco mais de margem */
+	text-align: center;
+}
+
+.qr-container img {
+	border: 1px solid #ccc;
+	padding: 15px;
+	border-radius: 8px;
+	background: white;
+	max-width: 300px; /* QR code maior */
+}
