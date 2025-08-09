@@ -1,26 +1,33 @@
-FROM golang:alpine3.22 AS builder
+FROM golang:alpine3.21 AS builder
 
-ENV CGO_ENABLED=0 \
-    GOOS=linux
+RUN apk add --no-cache git
 
 WORKDIR /app
 
 COPY go.mod ./
+
 RUN go mod download
 
 COPY . .
 
-RUN go build -o qrcode
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o qrcode .
 
 FROM alpine:latest
 
 RUN apk --no-cache add ca-certificates
 
-WORKDIR /app
+RUN addgroup -g 1001 appgroup && \
+    adduser -D -u 1001 -G appgroup appuser
+
+WORKDIR /root/
 
 COPY --from=builder /app/qrcode .
 
 COPY --from=builder /app/static ./static
+
+RUN chown -R appuser:appgroup /root/
+
+USER appuser
 
 EXPOSE 8080
 
