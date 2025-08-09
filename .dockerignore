@@ -1,0 +1,9 @@
+.git
+.gitignore
+Dockerfile
+nuke.sh
+k3s/
+README.md
+*.md
+*.log
+*.env

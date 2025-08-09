@@ -1,0 +1,19 @@
+# Go build
+qrcode
+*.exe
+*.out
+*.test
+
+# Dependency directories
+vendor/
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
