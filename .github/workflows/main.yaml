@@ -45,7 +45,7 @@ jobs:
           NEW_VERSION="v${{ github.run_number }}"
           IMAGE_NAME="ghcr.io/${{ github.repository_owner }}/qrcode:$NEW_VERSION"
           
-          docker build -t $IMAGE_NAME .
+          docker build --no-cache -t $IMAGE_NAME .
           docker push $IMAGE_NAME
 
   deploy:
